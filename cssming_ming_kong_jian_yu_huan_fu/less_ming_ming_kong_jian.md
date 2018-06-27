@@ -6,9 +6,9 @@
 >
 > .button \(\) {
 >
-> display: block; border: 1px solid black;
+>   display: block; border: 1px solid black;
 >
-> &:hover { background-color: white }
+>   &:hover { background-color: white }
 >
 > }
 >
@@ -24,9 +24,9 @@
 >
 > header a {
 >
->    color: orange;
+> color: orange;
 >
->    bundle &gt; .button;
+> bundle &gt; .button;
 >
 > }
 
