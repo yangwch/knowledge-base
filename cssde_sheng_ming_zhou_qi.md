@@ -223,6 +223,7 @@ CSS变化对浏览器重绘的影响参考ccstrggers：[https://csstriggers.com]
 * Internet Explorer 9 支持替代的 -ms-transform-origin 属性（仅适用于 2D 转换）。
 
 * Safari 和 Chrome 支持替代的 -webkit-transform-origin 属性（3D 和 2D 转换）。
+
 * Opera 只支持 2D 转换。
 
 > **CSS3中的矩阵：**指的是一个方法，书写为matrix\(\)和matrix3d\(\)，前者是元素2D平面的移动变换\(transform\)，后者则是3D变换。2D变换矩阵为3\_3；3D变换则是4\_4的矩阵。
@@ -303,11 +304,11 @@ var rotateDeg = 90;
 var cosVal = Math.cos(rotateDeg * Math.PI / 180), 
     sinVal = Math.sin(rotateDeg * Math.PI / 180);
 var valTransform = 'matrix('
-		+ cosVal.toFixed(6) +’,'
-  		+ sinVal.toFixed(6) +’,'
-		+ (-1 * sinVal).toFixed(6) +’,'
-		+ cosVal.toFixed(6)
-		+ ',0,0)';
+        + cosVal.toFixed(6) +’,'
+          + sinVal.toFixed(6) +’,'
+        + (-1 * sinVal).toFixed(6) +’,'
+        + cosVal.toFixed(6)
+        + ',0,0)';
  eleDetail.innerHTML = '目前属性值为：' + valTransform;
 ```
 
@@ -342,13 +343,15 @@ matrix\(1,tan\(θy\),tan\(θx\),1,0,0\)
 >
 > tanValX = Math.tan\(rX \* Math.PI / 180\);
 
+![](/assets/import9.png)
+
 ##### **4 缩放\(scale\)**
 
 ##### 上面的偏移只要关心最后两个参数，这个缩放也是只要关心两个参数。哪两个呢？
 
 如果你足够明察秋毫，应该已经知道了，因为上面多次出现的：
 
-transform: matrix\(1, 0, 0, 1, 30, 30\);
+`transform: matrix(1, 0, 0, 1, 30, 30);`
 
 发现没，matrix\(1, 0, 0, 1, \);的元素比例与原来一样，1:1, 而这几个参数中，有两个1，其中，第一个缩放x轴，第二个缩放y轴。
 
@@ -358,5 +361,5 @@ transform: matrix\(1, 0, 0, 1, 30, 30\);
 
 （为了避免元素比例放大时候遮盖上面的文本框以及描述位子，因此，将元素的坐标原点迁至了左上角。 transform-origin: top left;）
 
-**martix3d 参考：**[**http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/**](http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/)
+了解更多可以了解下martix3d
 
