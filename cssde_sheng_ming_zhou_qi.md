@@ -133,7 +133,9 @@ _示例标签对应的DOM树_
 
 **那为什么从右向左的规则要比从左向右的高效？**
 
-如图：![https://segmentfault.com/img/bVc9NH](assets/httpssegmentfaultcomimgbvc9nh.jpeg)
+如图：
+
+![https://segmentfault.com/img/bVc9NH](assets/httpssegmentfaultcomimgbvc9nh.jpeg)
 
 假如 DOM 的结构如上图，匹配规则是 .mod-nav h3 span。若从左向右的匹配，过程是：从 .mod-nav 开始，遍历子节点 header 和子节点 div，然后各自向子节点遍历。在右侧 div 的分支中，最后遍历到叶子节点 a ，发现不符合规则，需要回溯到 ul 节点，再遍历下一个 li-a，假如有 1000 个 li，则这 1000 次的遍历与回溯会损失很多性能。再看看从右至左的匹配：先找到所有的最右节点 span，对于每一个 span，向上寻找节点 h3，由 h3再向上寻找 class=mod-nav 的节点，最后找到根元素 html 则结束这个分支的遍历。很明显，两种匹配规则的性能差别很大。之所以会差别很大，是因为从右向左的匹配在第一步就筛选掉了大量的不符合条件的最右节点（叶子节点）；而从左向右的匹配规则的性能都浪费在了失败的查找上面。当然这是比较明显情况，如果在叶子上存在多个不符合条件的 span，从右向左的规则也会走一些弯路（这时就需要优化 CSS 选择器了）。但平均来说它还是更高效，因为大多时候，一个 DOM 树中，符合匹配条件的节点（如 .mod-nav h3 span）远少于不符合条件的节点。
 
@@ -163,9 +165,9 @@ Reset通过为几乎所有的元素施加默认样式，强行使得元素有相
 
 11，cssSprite，合成所有icon图片，用宽高加上bacgroud-position的背景图方式显现出我们要的icon图，这是一种十分实用的技巧，极大减少了http请求。
 
-CSS动画性能
+#### CSS动画性能
 
-首先，导致元素大小变化的动画会触发页面layout、paint、composited。
+**首先，导致元素大小变化的动画会触发页面layout、paint、composited。**
 
 为了得到更流畅的CSS动画效果，你需要尽量做到如下条件：
 
@@ -175,7 +177,9 @@ CSS动画性能
 
 CSS变化对浏览器重绘的影响参考ccstrggers：[https://csstriggers.com](https://csstriggers.com)
 
-使用transform/opacity
+![](/assets/import6.png)
+
+**使用transform/opacity**
 
 从性能方面考虑，最理想的渲染流水线是没有布局和绘制环节的，只需要做渲染层的合并即可
 
