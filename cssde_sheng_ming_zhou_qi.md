@@ -47,7 +47,9 @@ web页面中元素的布局是相对的，因此一个元素的布局发生变�
 
 ▲_Webkit主流程_
 
-##### _Mozilla的Geoko 渲染引擎主流程_
+![](/assets/import5.png)
+
+▲_Mozilla的Geoko 渲染引擎主流程_
 
 从上图可以看出，尽管webkit和Gecko使用的术语稍有不同，他们的主要流程基本相同。Gecko称可见的格式化元素组成的树为frame树，每个元素都是一个frame，webkit则使用render树这个名词来命名由渲染对象组成的树。Webkit中元素的定位称为布局，而Gecko中称为回流。Webkit称利用dom节点及样式信息去构建render树的过程为attachment，Gecko在html和dom树之间附加了一层，这层称为内容接收器，相当制造dom元素的工厂
 
