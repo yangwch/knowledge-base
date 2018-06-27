@@ -35,9 +35,9 @@ function init(){
     if (!mutationObserverSupport) {
         return;
     }
-    
+    // 添加按钮 和 body
     var addBtn = document.getElementById('myelement'),
-        body = document.getElementsByTagName('body')[0];
+        body = document.body;
     addBtn.addEventListener('click', function(e) {
         for (var i = 0, j = 100; i < j; i++) {
             var p = document.createElement('p');
@@ -48,8 +48,6 @@ function init(){
     }, false);
 }
 ```
-
-
 
 > #### Vue如何追踪变化
 >
