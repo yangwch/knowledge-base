@@ -69,9 +69,9 @@ StyleChange。如果CSS的属性发生变化了。
 
 Dirty。几个Incremental的reflow发生在同一个frame的子树上
 
-WebKit的解析器
+#### WebKit的解析器
 
-* **DOM**
+* #### **DOM**
 
 输出的树，也就是解析树，是由DOM元素及属性节点组成的。DOM是文档对象模型的缩写，它是html文档的对象表示，作为html元素的外部接口供js等调用。
 
@@ -79,23 +79,20 @@ WebKit的解析器
 
 DOM和标签基本是一一对应的关系，例如，如下的标签：
 
-&lt;html&gt;
-
 ```
-&lt;body&gt;
+<html>
+<body>
 
-    &lt;p&gt;
+    <p>
 
       Hello DOM
 
-    &lt;/p&gt;
+    </p>
 
-    &lt;div&gt;&lt;img src=”example.png” /&gt;&lt;/div&gt;
+    <div><img src=”example.png” /></div>
 
-&lt;/body&gt;
+</body>
 ```
-
-&lt;/html&gt;
 
 将会被转换为下面的DOM树：
 
