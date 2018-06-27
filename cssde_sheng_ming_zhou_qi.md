@@ -39,7 +39,9 @@ web页面中元素的布局是相对的，因此一个元素的布局发生变�
 
 **值得注意的是**，这个过程是逐步完成的，为了更好的用户体验，渲染引擎将会尽可能早的将内容呈现到屏幕上，并不会等到所有的html都解析完成之后再去构建和布局render树。它是解析完一部分内容就显示一部分内容，同时，可能还在通过网络下载其余内容。
 
-#### _解析过程_
+![](/assets/import3.png)
+
+▲_解析过程_
 
 ![http://taligarsiel.com/Projects/webkitflow.png](assets/httptaligarsielcomprojectsweb.png)
 
