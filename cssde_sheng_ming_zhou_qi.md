@@ -100,11 +100,13 @@ DOM和标签基本是一一对应的关系，例如，如下的标签：
 
 _示例标签对应的DOM树_
 
-* **CSS**
+* #### **CSS**
 
 每个CSS文件解析成StyleSheet对象，每个对象都包含CSS规则。该CSS规则对象包含选择器和声明对象，以及对应的CSS语法的其他对象。
 
-![http://taligarsiel.com/Projects/image023.png](assets/httptaligarsielcomprojectsima.png)_CSS解析_
+![http://taligarsiel.com/Projects/image023.png](assets/httptaligarsielcomprojectsima.png)
+
+▲_CSS解析_
 
 #### 性能分析 {#-1}
 
