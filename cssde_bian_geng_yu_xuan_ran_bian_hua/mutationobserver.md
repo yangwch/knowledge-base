@@ -12,33 +12,33 @@ var MutationObserver = window.MutationObserver ||
         window.MozMutationObserver;
 
 var mutationObserverSupport = !!MutationObserver;
-
+// observer变化回调
 var callback = function (records) {
     console.log('MutationObserver callback');
     records.map(function (record) {
         console.log('Mutation type: '+ record.type, ', target: ', record.target.nodeName);
     });
 };
-
+// 1 初始一个observer实例，指定回调方法
 var mo = new MutationObserver(callback);
 
 var option = {
     'childList': true, 
     'subtree': true
 };
-
+// 2 observer方法指定所要观察的DOM元素，以及要观察的特定变动。
 mo.observe(document.body, option);
 
 window.onload = init;
 
-function init(){
+function init () {
     if (!mutationObserverSupport) {
         return;
     }
-    // 添加按钮 和 body
-    var addBtn = document.getElementById('myelement'),
+    // DOM - 添加按钮 和 body
+    var addBtn = document.getElementById('myButton'),
         body = document.body;
-    addBtn.addEventListener('click', function(e) {
+    addBtn.addEventListener('click', function (e) {
         for (var i = 0, j = 100; i < j; i++) {
             var p = document.createElement('p');
             p.appendChild(document.createTextNode(i));
