@@ -1,6 +1,6 @@
-### 优先级
+## 优先级
 
-**CSS 优先级法则：**
+### **CSS 优先级法则：**
 
 A  选择器都有一个权值，权值越大越优先；
 
@@ -20,7 +20,7 @@ F 声明位置：
 
 G 后引入的优先级高
 
-**权重：**
+### 说一说**权重：**
 
 ![http://images.cnblogs.com/cnblogs\_com/xugang/WindowsLiveWriter/CSS\_148B3/jc6\_002\_thumb.png](../assets/httpimagescnblogscomcnblogsc.png)
 
