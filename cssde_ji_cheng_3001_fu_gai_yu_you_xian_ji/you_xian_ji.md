@@ -20,7 +20,7 @@ F 声明位置：
 
 G 后引入的优先级高
 
-* **权重**
+**权重：**
 
 ![http://images.cnblogs.com/cnblogs\_com/xugang/WindowsLiveWriter/CSS\_148B3/jc6\_002\_thumb.png](../assets/httpimagescnblogscomcnblogsc.png)
 
