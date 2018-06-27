@@ -8,9 +8,8 @@
 * [CSS的变更与渲染变化](cssde_bian_geng_yu_xuan_ran_bian_hua/README.md)
   * [Vue 绑定class或style](cssde_bian_geng_yu_xuan_ran_bian_hua/vue_bang_ding_class_huo_style.md)
   * [MutationObserver](cssde_bian_geng_yu_xuan_ran_bian_hua/mutationobserver.md)
-* [Require-css](require-css.md)
-* [CSS命名空间与换肤](cssming_ming_kong_jian_yu_huan_fu/README.md)
-  * [ @namespace](cssming_ming_kong_jian_yu_huan_fu/namespace.md)
-  * [LESS 命名空间](cssming_ming_kong_jian_yu_huan_fu/less_ming_ming_kong_jian.md)
-  * [换肤](cssming_ming_kong_jian_yu_huan_fu/huan_fu.md)
+* [换肤](cssming_ming_kong_jian_yu_huan_fu/README.md)
+  * [先了解下 LESS 命名空间](cssming_ming_kong_jian_yu_huan_fu/less_ming_ming_kong_jian.md)
+  * [换肤的几种方法](cssming_ming_kong_jian_yu_huan_fu/huan_fu.md)
+  * [Require-js/css（了解）](require-css.md)
 

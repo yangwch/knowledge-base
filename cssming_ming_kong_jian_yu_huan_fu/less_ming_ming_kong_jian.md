@@ -1,31 +1,34 @@
 ### LESS 命名空间 {#less}
 
-有时候，你可能为了更好组织CSS或者单纯是为了更好的封装，将一些变量或者混合模块打包起来, 你可以像下面这样在#bundle中定义一些属性集之后可以重复使用:
+有时候，你可能为了更好组织CSS或者单纯是为了更好的封装，将一些变量或者混合模块打包起来, 你可以像下面这样在\#bundle中定义一些属性集之后可以重复使用:
 
-#bundle {
+> bundle {
+>
+>   .button \(\) {
+>
+>     display: block; border: 1px solid black;
+>
+>     &:hover { background-color: white }
+>
+>   }
+>
+>   .tab { ... }
+>
+>   .citation { ... }
+>
+> }
 
-.button () {
+你只需要在 \#header a中像这样引入 .button:
 
-display: block; border: 1px solid black;
+> @import "bootstrap/buttons.less"
+>
+> header a {
+>
+>   color: orange;
+>
+>   bundle &gt; .button;
+>
+> }
 
-&amp;:hover { background-color: white }
 
-}
 
-.tab { ... }
-
-.citation { ... }
-
-}
-
-你只需要在 #header a中像这样引入 .button:
-
-@import &quot;bootstrap/buttons.less&quot;
-
-#header a {
-
-color: orange;
-
-#bundle &gt; .button;
-
-}
