@@ -49,6 +49,13 @@ function init () {
 }
 ```
 
+MutationObserver所观察的DOM变动（即上面代码的option对象），包含以下类型：
+
+* childList：子元素的变动
+* attributes：属性的变动
+* characterData：节点内容或节点文本的变动
+* subtree：所有下属节点（包括子节点和子节点的子节点）的变动
+
 > #### Vue如何追踪变化
 >
 > 当你把一个普通的 JavaScript 对象传给 Vue 实例的 `data` 选项，Vue 将遍历此对象所有的属性，并使用** **[**Object.defineProperty**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)** 把这些属性全部转为 getter/setter。Object.defineProperty 是 ES5 中一个无法 shim 的特性**，这也就是为什么 Vue 不支持 IE8 以及更低版本浏览器的原因。
