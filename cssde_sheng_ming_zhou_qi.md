@@ -221,6 +221,7 @@ CSS变化对浏览器重绘的影响参考ccstrggers：[https://csstriggers.com]
 * Internet Explorer 10、Firefox、Opera 支持 transform-origin 属性。
 
 * Internet Explorer 9 支持替代的 -ms-transform-origin 属性（仅适用于 2D 转换）。
+
 * Safari 和 Chrome 支持替代的 -webkit-transform-origin 属性（3D 和 2D 转换）。
 * Opera 只支持 2D 转换。
 
@@ -250,7 +251,7 @@ transform-origin: 50px 70px;
 
 斜拉\(skew\)，缩放\(scale\)，旋转\(rotate\)以及位移\(translate\)。
 
-**Martix写法:**
+#### **Martix写法:**
 
 CSS3 transform的matrix\(\)方法写法如下：
 
@@ -266,7 +267,7 @@ transform: matrix\(a,b,c,d,e,f\);
 
 其中，x, y表示转换元素的所有坐标（变量）
 
-1. **偏移**
+##### 1 **偏移**
 
 transform: matrix\(1, 0, 0, 1, 30, 30\); /_ a=1, b=0, c=0, d=1, e=30, f=30 _/
 
@@ -276,55 +277,50 @@ transform: matrix\(1, 0, 0, 1, 30, 30\); /_ a=1, b=0, c=0, d=1, e=30, f=30 _/
 
 于是，中心点坐标从\(0, 0\)变成了→\(30, 30\)。对照上面有个\(30, 30\)的白点图，好好想象下，原来\(0,0\)的位置，移到了白点的\(30, 30\)处，怎么样，是不是往右下方同时偏移了30像素！！
 
-**实际上`transform: matrix(1, 0, 0, 1, 30, 30)`，就等同于**
+**实际上**`transform: matrix(1, 0, 0, 1, 30, 30)`**，就等同于**
 
-**`transform: translate(30px, 30px);`**
+`transform: translate(30px, 30px);`
 
-1. **旋转\(rotate\)**
+##### 2 **旋转\(rotate\)**
 
 要用到（可能勾起学生时代阴影的）三角函数。
 
 方法以及参数使用如下（假设角度为θ）：
 
-matrix\(cosθ,sinθ,-sinθ,cosθ,0,0\)
+`matrix(cosθ,sinθ,-sinθ,cosθ,0,0)`
 
 结合矩阵公式，就有：
 
-x' = x\_cosθ-y\_sinθ+0 = x\_cosθ-y\_sinθ
-
-y' = x\_sinθ+y\_cosθ+0 = x\_sinθ+y\_cosθ
+```
+x' = x_cosθ-y_sinθ+0 = x_cosθ-y_sinθ
+y' = x_sinθ+y_cosθ+0 = x_sinθ+y_cosθ
+```
 
 代码如：
 
+```
 var rotateDeg = 90;
-
-var cosVal = Math.cos\(rotateDeg \* Math.PI / 180\),
-
-sinVal = Math.sin\(rotateDeg \* Math.PI / 180\);
-
-var valTransform = 'matrix\('
-
-* cosVal.toFixed\(6\) +’,'
-
-* sinVal.toFixed\(6\) +’,'
-
-* \(-1 \* sinVal\).toFixed\(6\) +’,'
-
-* cosVal.toFixed\(6\)
-
-* ',0,0\)';
-
-eleDetail.innerHTML = '目前属性值为：' + valTransform;
+var cosVal = Math.cos(rotateDeg * Math.PI / 180), 
+    sinVal = Math.sin(rotateDeg * Math.PI / 180);
+var valTransform = 'matrix('
+		+ cosVal.toFixed(6) +’,'
+  		+ sinVal.toFixed(6) +’,'
+		+ (-1 * sinVal).toFixed(6) +’,'
+		+ cosVal.toFixed(6)
+		+ ',0,0)';
+ eleDetail.innerHTML = '目前属性值为：' + valTransform;
+```
 
 相当于：
 
-transform: rotate\(90deg\);
-
-transform: matrix\(0, 1, -1, 0, 0, 0\);
+```
+transform: rotate(90deg);
+transform: matrix(0, 1, -1, 0, 0, 0);
+```
 
 参考示例：[http://www.zhangxinxu.com/study/201206/css3-transform-matrix-rotate.html](http://www.zhangxinxu.com/study/201206/css3-transform-matrix-rotate.html)
 
-1. **拉伸\(skew\)**
+##### 3 **拉伸\(skew\)**
 
 拉伸也用到了三角函数，不过是tanθ，而且，其至于b, c两个参数相关，书写如下（注意y轴倾斜角度在前）：
 
@@ -332,21 +328,23 @@ matrix\(1,tan\(θy\),tan\(θx\),1,0,0\)
 
 套用矩阵公式计算结果为：
 
-x' = x+y\_tan\(θx\)+0 = x+y\_tan\(θx\)
-
-y' = x\_tan\(θy\)+y+0 = x\_tan\(θy\)+y
+> x' = x+y\_tan\(θx\)+0 = x+y\_tan\(θx\)
+>
+> y' = x\_tan\(θy\)+y+0 = x\_tan\(θy\)+y
 
 对应于skew\(θx + "deg"，θy+ “deg"\)这种写法。
 
-var rY = 60,rX = 30;
+> var rY = 60,rX = 30;
+>
+> var tanValY =
+>
+> Math.tan\(rY \* Math.PI / 180\),
+>
+> tanValX = Math.tan\(rX \* Math.PI / 180\);
 
-var tanValY =
+##### **4 缩放\(scale\)**
 
-Math.tan\(rY \* Math.PI / 180\),
-
-tanValX = Math.tan\(rX \* Math.PI / 180\);
-
-**4、缩放\(scale\)**上面的偏移只要关心最后两个参数，这个缩放也是只要关心两个参数。哪两个呢？
+##### 上面的偏移只要关心最后两个参数，这个缩放也是只要关心两个参数。哪两个呢？
 
 如果你足够明察秋毫，应该已经知道了，因为上面多次出现的：
 
