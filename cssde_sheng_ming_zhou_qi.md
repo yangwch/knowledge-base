@@ -214,20 +214,19 @@ CSS变化对浏览器重绘的影响参考ccstrggers：[https://csstriggers.com]
 
 上面这段代码意味着你想对页面中每个元素都创建一个自有的渲染层。问题是，创建一个新的渲染层并不是免费的，它得消耗额外的内存和管理资源。实际上，在内存资源有限的设备上，由于过多的渲染层来带的开销而对页面渲染性能产生的影响，甚至远远超过了它在性能改善上带来的好处。由于每个渲染层的纹理都需要上传到GPU处理，因此我们还需要考虑CPU和GPU之间的带宽问题、以及有多大内存供GPU处理这些纹理的问题。
 
-#### Martix {#martix}
+### Martix
 
 **浏览器支持**
 
-Internet Explorer 10、Firefox、Opera 支持 transform-origin 属性。
+* Internet Explorer 10、Firefox、Opera 支持 transform-origin 属性。
 
-Internet Explorer 9 支持替代的 -ms-transform-origin 属性（仅适用于 2D 转换）。
+* Internet Explorer 9 支持替代的 -ms-transform-origin 属性（仅适用于 2D 转换）。
+* Safari 和 Chrome 支持替代的 -webkit-transform-origin 属性（3D 和 2D 转换）。
+* Opera 只支持 2D 转换。
 
-Safari 和 Chrome 支持替代的 -webkit-transform-origin 属性（3D 和 2D 转换）。
-
-Opera 只支持 2D 转换。
-
-* **CSS3中的矩阵：**指的是一个方法，书写为matrix\(\)和matrix3d\(\)，前者是元素2D平面的移动变换\(transform\)，后者则是3D变换。2D变换矩阵为3\_3；3D变换则是4\_4的矩阵。
-* **坐标系统：**transform旋转，默认是绕着中心点旋转的，而这个中心点就是transform-origin属性对应的点，也是所有矩阵计算的一个重要依据点（下图参考自[dev.opera.com](http://www.zhangxinxu.com/wordpress/2012/06/css3-transform-matrix-矩阵/dev.opera.com)）。
+> **CSS3中的矩阵：**指的是一个方法，书写为matrix\(\)和matrix3d\(\)，前者是元素2D平面的移动变换\(transform\)，后者则是3D变换。2D变换矩阵为3\_3；3D变换则是4\_4的矩阵。
+>
+> **坐标系统：**transform旋转，默认是绕着中心点旋转的，而这个中心点就是transform-origin属性对应的点，也是所有矩阵计算的一个重要依据点（下图参考自[dev.opera.com](http://www.zhangxinxu.com/wordpress/2012/06/css3-transform-matrix-矩阵/dev.opera.com)）。
 
 ![transform坐标系统](assets/transformzuo_biao_xi_tong.png)
 
@@ -257,9 +256,13 @@ CSS3 transform的matrix\(\)方法写法如下：
 
 transform: matrix\(a,b,c,d,e,f\);
 
-实际上，这6参数，对应的矩阵就是：![矩阵参数与矩阵对应关系 张鑫旭-鑫空间-鑫生活](assets/ju_zhen_can_shu_yu_ju_zhen_dui_ying_guan_xi_zhang_xin_65ed-_xin_kong_95f4-_xin_sheng_huo.gif)
+实际上，这6参数，对应的矩阵就是：
 
-注意书写方向是竖着的，反应在这里就是如下转换公式：![CSS3中矩阵位置计算公式 张鑫旭-鑫空间-鑫生活](assets/css3zhong_ju_zhen_wei_zhi_ji_suan_gong_shi_zhang_xin_65ed-_xin_kong_95f4-_xin_sheng_huo.gif)
+![矩阵参数与矩阵对应关系 张鑫旭-鑫空间-鑫生活](assets/ju_zhen_can_shu_yu_ju_zhen_dui_ying_guan_xi_zhang_xin_65ed-_xin_kong_95f4-_xin_sheng_huo.gif)
+
+注意书写方向是竖着的，反应在这里就是如下转换公式：
+
+![CSS3中矩阵位置计算公式 张鑫旭-鑫空间-鑫生活](assets/css3zhong_ju_zhen_wei_zhi_ji_suan_gong_shi_zhang_xin_65ed-_xin_kong_95f4-_xin_sheng_huo.gif)
 
 其中，x, y表示转换元素的所有坐标（变量）
 
@@ -273,9 +276,9 @@ transform: matrix\(1, 0, 0, 1, 30, 30\); /_ a=1, b=0, c=0, d=1, e=30, f=30 _/
 
 于是，中心点坐标从\(0, 0\)变成了→\(30, 30\)。对照上面有个\(30, 30\)的白点图，好好想象下，原来\(0,0\)的位置，移到了白点的\(30, 30\)处，怎么样，是不是往右下方同时偏移了30像素！！
 
-**实际上 transform: matrix\(1, 0, 0, 1, 30, 30\)，就等同于**
+**实际上`transform: matrix(1, 0, 0, 1, 30, 30)`，就等同于**
 
-**transform: translate\(30px, 30px\);**
+**`transform: translate(30px, 30px);`**
 
 1. **旋转\(rotate\)**
 
