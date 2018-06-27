@@ -108,29 +108,22 @@ _示例标签对应的DOM树_
 
 #### 性能分析 {#-1}
 
-CSS匹配规则
-
 了解下css是怎么进行工作的
 
-//css
-
-**.con .example p span** { display: block; }
-
-&lt;!— html --&gt;
-
-&lt;div class="con"&gt;
-
-&lt;div class="example"&gt;
-
-&lt;p&gt;
-
-&lt;span&gt;文字&lt;/span&gt;
-
-&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
+```
+<!-- css -->
+<style>
+    .con .example p span { display: block; }
+</style>
+<!— html -->
+<div class="con">
+    <div class="example">
+        <p>
+            <span>文字</span>
+        </p>
+    </div>
+</div>
+```
 
 我们对con类下example类中的p标签里的span 进行定义。
 
