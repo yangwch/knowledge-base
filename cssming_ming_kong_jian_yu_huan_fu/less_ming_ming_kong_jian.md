@@ -2,21 +2,21 @@
 
 有时候，你可能为了更好组织CSS或者单纯是为了更好的封装，将一些变量或者混合模块打包起来, 你可以像下面这样在\#bundle中定义一些属性集之后可以重复使用:
 
-> bundle {
+> `bundle {`
 >
-> .button \(\) {
+> `.button () {`
 >
->   display: block; border: 1px solid black;
+>    `display: block; border: 1px solid black;`
 >
->   &:hover { background-color: white }
+>    `&:hover { background-color: white }`
 >
-> }
+> `}`
 >
-> .tab { ... }
+> `.tab { ... }`
 >
-> .citation { ... }
+> `.citation { ... }`
 >
-> }
+> `}`
 
 你只需要在 \#header a中像这样引入 .button:
 
