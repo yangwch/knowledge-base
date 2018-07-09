@@ -10,3 +10,9 @@
 
 
 
+其它参考：
+
+[JS事件绑定、事件监听、事件委托](https://www.jb51.net/article/93752.htm#comments)
+
+
+
