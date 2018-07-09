@@ -8,11 +8,10 @@
 
 4. 拓展：CSS换肤功能
 
-
-
-其它参考：
-
-[JS事件绑定、事件监听、事件委托](https://www.jb51.net/article/93752.htm#comments)
+> 其它参考：
+>
+> * [JS事件绑定、事件监听、事件委托](https://www.jb51.net/article/93752.htm#comments)
+> * [JS创建类和对象](http://www.cnblogs.com/tiwlin/archive/2009/08/06/1540161.html)
 
 
 
