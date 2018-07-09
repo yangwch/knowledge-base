@@ -10,7 +10,7 @@
 
 > 其它参考自学：
 >
-> * [JS事件绑定、事件监听、事件委托](https://www.jb51.net/article/93752.htm#comments)
+> * [JS事件绑定、事件监听、事件委托](https://www.jb51.net/article/93752.htm)
 > * [JS创建类和对象](http://www.cnblogs.com/tiwlin/archive/2009/08/06/1540161.html)
 
 
